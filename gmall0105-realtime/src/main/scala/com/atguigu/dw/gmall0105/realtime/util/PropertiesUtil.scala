@@ -13,7 +13,12 @@ object PropertiesUtil {
     properties.load(is)
     def getProperty(propertyName: String): String = properties.getProperty(propertyName)
     
+    def apply(propertyName: String) ={
+        getProperty(propertyName)
+    }
+    
     def main(args: Array[String]): Unit = {
         println(getProperty("kafka.broker.list"))
+        println(PropertiesUtil("kafka.broker.list"))
     }
 }
